@@ -1,0 +1,44 @@
+How to use?
+===========
+
+First add the project as a submodule:
+
+    git submodule add https://github.com/firegate666/docker-php7-mysql-postgres.git ./docker
+    git submodule init
+    git submodule update --remote
+
+Afterwards enter the docker folder and enter
+
+    docker-compose up
+    
+to start the machine.
+    
+Now you can access the databases from within your project by talking to 'mysql' or 'postgres' as host.
+
+Try
+
+    docker exec -it docker_postgres_1 psql -U myapp
+    
+or
+
+    docker exec -it docker_mysql_1 mysql --user=myapp --password --host=localhost myapp
+    
+The internal php server fires up the application and makes it accesible on the docker ip on port 8000. 
+If unsure you can use docker-machine to get the IP address. 
+
+To enter you machine you can exec
+
+    docker exec -it docker_web_1 bash
+    
+then you are logged in as user.
+
+The folder above you docker folder is mounted to /app, the webroot points to /app/web, this should be configurable in the future.
+
+e.g.:
+
+    http://192.168.64.4:8000/
+    
+TODO
+====
+- configurable webroot
+- configurable port
