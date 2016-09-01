@@ -21,7 +21,7 @@ services:
       POSTGRES_DB: "myapp"
   web:
     image: allansimon/php7-fpm-postgresql
-    command: php -S 0.0.0.0:8000 -t /app/web
+    command: php -S 0.0.0.0:${PORT} -t /app/${DOCROOT}
     links:
       - mysql
       - postgres
