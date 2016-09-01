@@ -9,7 +9,8 @@ First add the project as a submodule:
 
 Afterwards enter the docker folder and enter
 
-    docker-compose up
+    docker-compose build
+    docker-compose run -e PORT="8000" -e DOCROOT="web"
     
 to start the machine.
     
@@ -23,7 +24,7 @@ or
 
     docker exec -it docker_mysql_1 mysql --user=myapp --password --host=localhost myapp
     
-The internal php server fires up the application and makes it accesible on the docker ip on port 8000. 
+The internal php server fires up the application and makes it accesible on the docker ip on port "as configured above". 
 If unsure you can use docker-machine to get the IP address. 
 
 To enter you machine you can exec
@@ -40,5 +41,4 @@ e.g.:
     
 TODO
 ====
-- configurable webroot
-- configurable port
+- ...
