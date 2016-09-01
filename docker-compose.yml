@@ -1,6 +1,6 @@
 version: '2'
 services:
-  postgres:
+  mysql:
     restart: always
     image: mysql:5.7
     ports:
@@ -10,7 +10,7 @@ services:
       - MYSQL_DATABASE=myapp
       - MYSQL_USER=myapp
       - MYSQL_PASSWORD
-  mysql:
+  postgres:
     restart: always
     image: postgres:9.5
     ports:
