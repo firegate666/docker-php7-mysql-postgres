@@ -9,9 +9,9 @@ First add the project as a submodule:
 
 Afterwards enter the docker folder and enter
 
-    docker-compose up
+    PORT="8000" DOCROOT="web" docker-compose run web
     
-to start the machine.
+to start the machine. PORT is the exposed port where you can access you application and DOCROOT points to /app/DOCROOT on the machine where /app is mounted to the parent of this docker folder.
     
 Now you can access the databases from within your project by talking to 'mysql' or 'postgres' as host.
 
@@ -23,14 +23,14 @@ or
 
     docker exec -it docker_mysql_1 mysql --user=myapp --password --host=localhost myapp
     
-The internal php server fires up the application and makes it accesible on the docker ip on port 8000. 
+The internal php server fires up the application and makes it accesible on the docker ip on port "as configured above". 
 If unsure you can use docker-machine to get the IP address. 
 
 To enter you machine you can exec
 
     docker exec -it docker_web_1 bash
     
-then you are logged in as user.
+then you are logged in as user. Your machines might have gotten a different name than this. You can always use "docker ps" to get a list of running containers and there name or specify a custom container name by setting "--name SOMETHING" when executing "docker-compose run".
 
 The folder above you docker folder is mounted to /app, the webroot points to /app/web, this should be configurable in the future.
 
@@ -40,5 +40,4 @@ e.g.:
     
 TODO
 ====
-- configurable webroot
-- configurable port
+- ...
