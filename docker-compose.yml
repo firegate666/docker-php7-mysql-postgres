@@ -1,6 +1,7 @@
 version: '2'
 services:
   mysql:
+    container_name: web_app_mysql
     restart: always
     image: mysql/mysql-server:5.7
     environment:
@@ -9,6 +10,7 @@ services:
       MYSQL_PASSWORD: "myapp"
       MYSQL_DATABASE: "myapp"
   postgres:
+    container_name: web_app_postgres
     restart: always
     image: postgres:9.5
     environment:
@@ -16,6 +18,7 @@ services:
       POSTGRES_PASSWORD: "myapp"
       POSTGRES_DB: "myapp"
   web:
+    container_name: web_app
     image: allansimon/php7-fpm-postgresql
     command: php -S 0.0.0.0:${PORT} -t /app/${DOCROOT}
     links:
