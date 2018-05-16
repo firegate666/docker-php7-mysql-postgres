@@ -20,11 +20,11 @@ services:
   web:
     container_name: web_app
     image: allansimon/php7-fpm-postgresql
-    command: php -S 0.0.0.0:${PORT} -t /app/${DOCROOT}
+    command: php -S 0.0.0.0:8080 -t /app/${DOCROOT}
     links:
       - mysql
       - postgres
     ports:
-      - "${PORT}:${PORT}"
+      - "${PORT}:8080"
     volumes:
       - ../:/app
