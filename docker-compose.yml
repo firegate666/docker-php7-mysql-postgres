@@ -3,7 +3,7 @@ services:
   mysql:
     container_name: web_app_mysql
     restart: always
-    image: mysql/mysql-server:5.7
+    image: mysql/mysql-server
     environment:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_USER: "myapp"
@@ -12,7 +12,7 @@ services:
   postgres:
     container_name: web_app_postgres
     restart: always
-    image: postgres:9.5
+    image: postgres
     environment:
       POSTGRES_USER: "myapp"
       POSTGRES_PASSWORD: "myapp"
