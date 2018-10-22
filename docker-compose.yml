@@ -19,7 +19,7 @@ services:
       POSTGRES_DB: "myapp"
   web:
     container_name: web_app
-    image: allansimon/php7-fpm-postgresql
+    build: .
     command: php -S 0.0.0.0:8080 -t /app/${DOCROOT}
     links:
       - mysql
@@ -28,3 +28,7 @@ services:
       - "${PORT}:8080"
     volumes:
       - ../:/app
+    depends_on:
+      - "mysql"
+      - "postgres"
+
