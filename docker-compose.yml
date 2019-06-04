@@ -20,14 +20,14 @@ services:
   web:
     container_name: web_app
     build: .
-    command: php -S 0.0.0.0:8080 -t /app/${DOCROOT}
+    command: php -S 0.0.0.0:8080 -t /var/www/html/${DOCROOT}
     links:
       - mysql
       - postgres
     ports:
       - "${PORT}:8080"
     volumes:
-      - ../:/app
+      - ../:/var/www/html
     depends_on:
       - "mysql"
       - "postgres"
