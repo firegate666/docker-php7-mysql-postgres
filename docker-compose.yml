@@ -1,5 +1,14 @@
 version: '2'
 services:
+  percona:
+    container_name: web_app_percona
+    restart: always
+    image: percona:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_USER: "myapp"
+      MYSQL_PASSWORD: "myapp"
+      MYSQL_DATABASE: "myapp"
   mysql:
     container_name: web_app_mysql
     restart: always
@@ -24,6 +33,7 @@ services:
     links:
       - mysql
       - postgres
+      - percona
     ports:
       - "${PORT}:8080"
     volumes:
@@ -31,4 +41,5 @@ services:
     depends_on:
       - "mysql"
       - "postgres"
+      - "percona"
 
