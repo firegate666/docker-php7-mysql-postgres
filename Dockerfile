@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.3-fpm
 # Install modules
 RUN buildDeps="libpq-dev libzip-dev libicu-dev libpng-dev libjpeg62-turbo-dev libfreetype6-dev libmagickwand-6.q16-dev libxslt-dev" && \
     apt-get update && \
