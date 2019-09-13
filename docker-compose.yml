@@ -9,6 +9,8 @@ services:
       MYSQL_USER: "myapp"
       MYSQL_PASSWORD: "myapp"
       MYSQL_DATABASE: "myapp"
+    ports:
+      - "10001:3306"
   mysql:
     container_name: web_app_mysql
     restart: always
@@ -18,6 +20,8 @@ services:
       MYSQL_USER: "myapp"
       MYSQL_PASSWORD: "myapp"
       MYSQL_DATABASE: "myapp"
+    ports:
+      - "10002:3306"
   postgres:
     container_name: web_app_postgres
     restart: always
@@ -26,6 +30,8 @@ services:
       POSTGRES_USER: "myapp"
       POSTGRES_PASSWORD: "myapp"
       POSTGRES_DB: "myapp"
+    ports:
+      - "10003:5432"
   web:
     container_name: web_app
     build: .
@@ -42,4 +48,3 @@ services:
       - "mysql"
       - "postgres"
       - "percona"
-
